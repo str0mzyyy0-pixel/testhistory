@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тарих — пробное тестирование в магистратуру</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#e9eeec;--card:#fff;--tx:#1b2a26;--mu:#66756f;--pr:#1f6f5c;--on:#fff;--bd:#d3ddd9;--gold:#c9a227;--ok:#2e9e6b;--bad:#c4473a;--soft:#f3f6f5}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#111917;--card:#1a2623;--tx:#e6efec;--mu:#93a39d;--pr:#3aa58b;--on:#07140f;--bd:#2c3b37;--soft:#22302c}}
+:root[data-theme=dark]{--bg:#111917;--card:#1a2623;--tx:#e6efec;--mu:#93a39d;--pr:#3aa58b;--on:#07140f;--bd:#2c3b37;--soft:#22302c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.w{max-width:1040px;margin:0 auto;padding:14px 16px 40px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.br{display:flex;align-items:center;gap:10px}
+.lg{width:38px;height:38px;border-radius:9px;background:var(--pr);color:var(--on);display:grid;place-items:center;font:700 22px Georgia,serif}
+.br b{font:700 22px Georgia,serif;display:block;line-height:1.1}.br small{color:var(--mu);font-size:12px}
+.gh{background:none;border:1px solid var(--bd);border-radius:8px;padding:6px 12px;color:var(--mu);font-size:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.pc{text-align:left;background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:16px}
+.pc.on{border-color:var(--pr)}.pc b{font:700 24px Georgia,serif}.pc span{display:block;color:var(--mu);font-size:14px}
+.pr{background:var(--pr);color:var(--on);border:0;border-radius:9px;padding:11px 20px;font-weight:600}
+.pr:disabled{opacity:.4;cursor:default}
+.sc{background:var(--card);border:1px solid var(--bd);border-radius:9px;padding:10px 16px}
+.mu{color:var(--mu);font-size:14px}
+h1{font:700 30px/1.2 Georgia,serif;margin:0 0 8px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tm{font:600 22px ui-monospace,Consolas,monospace;background:var(--card);border:1px solid var(--bd);border-radius:9px;padding:6px 14px}
+.ex{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px;align-items:start}
+.qm{display:flex;justify-content:space-between;gap:8px;color:var(--mu);font-size:13px;margin-bottom:14px}
+.fl{background:none;border:1px solid var(--bd);border-radius:7px;padding:2px 10px;font-size:13px;color:var(--mu)}.fl.on{border-color:var(--gold);color:var(--gold)}
+.au{display:flex;gap:8px;margin-bottom:10px}
+.psg{background:var(--soft);border-left:3px solid var(--pr);padding:12px 14px;border-radius:6px;margin:0 0 14px}
+details{margin:6px 0 12px}summary{cursor:pointer;color:var(--mu);font-size:14px}
+.qt{font:600 20px/1.4 Georgia,serif;margin:8px 0 6px}
+.op{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--soft);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin-top:8px}
+.op i{width:16px;height:16px;border:2px solid var(--mu);border-radius:50%;flex:none}
+.op.sel{border-color:var(--pr);background:color-mix(in srgb,var(--pr) 14%,var(--card))}.op.sel i{background:var(--pr);border-color:var(--pr)}
+.op b{color:var(--mu);width:14px}
+.ft{display:flex;justify-content:space-between;margin-top:20px;gap:8px;flex-wrap:wrap}
+.side select{width:100%;padding:8px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);margin:6px 0 10px}
+.gr{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0;max-height:300px;overflow:auto;padding:2px}
+.nb{aspect-ratio:1;border:1px solid var(--bd);border-radius:7px;background:var(--soft);font-size:13px;position:relative}
+.nb.an{background:var(--ok);color:#fff;border-color:var(--ok)}.nb.fl2:after{content:"";position:absolute;top:3px;right:3px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.nb.cu{outline:2px solid var(--gold);outline-offset:1px}
+.lgd{font-size:12px;color:var(--mu);margin:8px 0}
+.rv{border-left:4px solid var(--bad);background:var(--soft);padding:8px 12px;margin:8px 0;border-radius:6px}.rv.ok{border-color:var(--ok)}
+.bar{height:8px;background:var(--soft);border-radius:4px;overflow:hidden;margin:4px 0 12px}.bar i{display:block;height:100%;background:var(--pr)}
+@media(max-width:780px){.ex,.pg{grid-template-columns:1fr}.qt{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="top">
+    <div class="br"><div class="lg">T</div><div><b>Тарих</b><small>Магистратура · Казахстан</small></div></div>
+    <button class="gh" id="th">Тема</button>
+  </div>
+  <div id="app"></div>
+</div>
+
+<script>
+/* ============ БАНК ВОПРОСОВ — добавляйте свои сюда ============
+   t: вопрос, o: варианты, a: номер верного (с 0), lv: сложность A/B/C
+   p: текст для чтения (Reading), au: текст, который озвучивает браузер (Listening)
+   tp: тема/раздел (показывается над вопросом)
+   По спецификации по истории: 30 вопросов, 5 вариантов, A=9 / B=12 / C=9 */
+const BANK={
+en:[
+{tp:'Grammar',lv:'B',t:'If she ___ harder, she would have passed the exam.',o:['studies','had studied','studied','would study'],a:1},
+{tp:'Grammar',lv:'B',t:'The committee ___ the proposal before the end of the month.',o:['will have reviewed','has reviewing','is reviewed','reviewing'],a:0},
+{tp:'Vocabulary',lv:'A',t:'Her research made a significant ___ to the field of linguistics.',o:['contribution','contributor','contribute','contributing'],a:0},
+{tp:'Reading',lv:'B',p:'Universities in many countries increasingly offer blended courses, in which students attend some classes in person and complete the rest online. Supporters argue that this model gives learners more flexibility, while critics worry that it may reduce contact between students and teachers. A recent survey found that most students valued the flexibility but wanted at least one weekly meeting on campus.',t:'What do critics of blended courses fear?',o:['Higher tuition fees','Less contact between students and teachers','Weaker internet connections','Longer study hours'],a:1},
+{tp:'Reading',lv:'A',p:'Universities in many countries increasingly offer blended courses, in which students attend some classes in person and complete the rest online. Supporters argue that this model gives learners more flexibility, while critics worry that it may reduce contact between students and teachers. A recent survey found that most students valued the flexibility but wanted at least one weekly meeting on campus.',t:'According to the survey, what did most students want?',o:['Only online classes','No classes on campus','At least one weekly meeting on campus','Fewer teachers'],a:2},
+{tp:'Listening',lv:'A',au:'Attention please. The visit to the archive has been moved. It will now start at one o\'clock in the afternoon instead of half past ten. Please meet in front of the main entrance.',t:'What is the new starting time?',o:['10:30','13:00','9:00','12:00'],a:1},
+{tp:'Listening',lv:'B',au:'From next month, the university library will close at six o\'clock on Fridays instead of eight. On other days the opening hours stay the same.',t:'When will the library close on Fridays from next month?',o:['At 4:00','At 6:00','At 8:00','At 10:00'],a:1}
+],
+M016:[
+{tp:'Ежелгі замандағы Қазақстан',lv:'A',t:'1969 жылы Есік қорғанынан табылған «Алтын адам» қай дәуірге жатады?',o:['Сақ','Ғұн','Үйсін','Қаңлы','Қимақ'],a:0},
+{tp:'Орта ғасырдағы Қазақстан',lv:'A',t:'Түркі қағанаты қай жылы құрылды?',o:['462 ж.','552 ж.','603 ж.','659 ж.','744 ж.'],a:1},
+{tp:'Қазақстан моңғол үстемдігі дәуірінде',lv:'B',t:'Шыңғыс хан әскерінің Отырарды қоршауы қай жылдары болды?',o:['1206–1207','1219–1220','1237–1238','1243–1244','1260–1261'],a:1},
+{tp:'Қазақ хандығы дәуірі',lv:'A',t:'Қазақ хандығы дәстүрлі тарихнамада қай жылы құрылды деп саналады?',o:['1428 ж.','1456 ж.','1465 ж.','1511 ж.','1580 ж.'],a:2},
+{tp:'Қазақ жерін Ресей империясының отарлауы',lv:'B',t:'Кіші жүздің Ресей қарамағына өтуі қай жылдан басталды?',o:['1710 ж.','1731 ж.','1740 ж.','1822 ж.','1868 ж.'],a:1},
+{tp:'Ұлт-азаттық қозғалыс',lv:'B',t:'Кенесары Қасымұлы бастаған көтеріліс қай жылдары болды?',o:['1783–1797','1822–1824','1837–1847','1869–1870','1916'],a:2},
+{tp:'ХХ ғасыр басындағы Қазақстан',lv:'B',t:'Алаш автономиясы қай жылы жарияланды?',o:['1905 ж.','1916 ж.','1917 ж.','1920 ж.','1924 ж.'],a:2},
+{tp:'Тәуелсіз Қазақстан',lv:'A',t:'«Қазақстан Республикасының мемлекеттік тәуелсіздігі туралы» Конституциялық заң қашан қабылданды?',o:['1990 ж. 25 қазан','1991 ж. 1 желтоқсан','1991 ж. 16 желтоқсан','1993 ж. 28 қаңтар','1995 ж. 30 тамыз'],a:2}
+],
+M053:[
+{tp:'Тайпалық одақтар мен ежелгі мемлекеттер. Сақ дәуірі',lv:'A',t:'«Алтын адам» табылған Есік қорғаны қай өңірде орналасқан?',o:['Жетісу','Сарыарқа','Маңғыстау','Алтай','Атырау'],a:0},
+{tp:'Көне түркі кезеңі',lv:'B',t:'Түркі қағанатының негізін қалаушы кім?',o:['Бумын қаған','Білге қаған','Күлтегін','Тоныкөк','Күшлік'],a:0},
+{tp:'Араб-мұсылман факторы. Ұлы ғұламалар',lv:'A',t:'Аристотельден кейінгі «Екінші ұстаз» атанған ғұлама кім?',o:['Махмұд Қашқари','Жүсіп Баласағұн','Әл-Фараби','Қожа Ахмет Яссауи','М.Х. Дулати'],a:2},
+{tp:'Араб-мұсылман факторы. Ұлы ғұламалар',lv:'A',t:'«Диуани лұғат ат-түрік» сөздігінің авторы кім?',o:['Әл-Фараби','Жүсіп Баласағұн','Қожа Ахмет Яссауи','Махмұд Қашқари','Ибн Сина'],a:3},
+{tp:'Монғолдардың жаулап алуы',lv:'A',t:'Шыңғыс хан бастаған Орта Азияға жорық қай жылдары басталды?',o:['1206–1211','1219–1221','1237–1241','1380–1395','1428–1468'],a:1},
+{tp:'Әбілхайыр хандығы',lv:'B',t:'Әбілхайыр хандығы қай жылдар аралығында өмір сүрді?',o:['1219–1227','1361–1405','1428–1468','1465–1480','1511–1523'],a:2},
+{tp:'Қазақ хандығының құрылуы',lv:'B',t:'Қазақ хандығының негізін қалаушы сұлтандар кімдер?',o:['Керей мен Жәнібек','Қасым мен Хақназар','Тәуке мен Абылай','Әбілхайыр мен Барақ','Жошы мен Шағатай'],a:0}
+]};
+const SUB={en:'Английский язык',M016:'История Казахстана',M053:'Древняя и средневековая история Казахстана'};
+const PROG={M016:{d:'Подготовка педагогов истории',h:'«Қазақстан тарихы»'},M053:{d:'История',h:'«Қазақстанның ежелгі және ортағасырлар тарихы»'}};
+const TOTAL_MIN=240;  // общее время экзамена, минут
+/* ===== Дополнительные вопросы (компактный формат): [тема, сложность, вопрос, 'варианты через |', номер верного] ===== */
+const add=(p,rows)=>rows.forEach(r=>{let o=r[3].split('|'),a=r[4];if(!/^\d/.test(o[0])){const h=[...r[2]].reduce((s,c)=>s+c.charCodeAt(0),0)%o.length;o=o.map((_,i)=>o[(i-h+o.length)%o.length]);a=(a+h)%o.length}BANK[p].push({tp:r[0],lv:r[1],t:r[2],o,a})});
+const T1='Ежелгі замандағы Қазақстан',T2='Орта ғасырдағы Қазақстан',T3='Қазақстан моңғол үстемдігі дәуірінде',T4='Қазақ хандығы дәуірі',T5='Қазақ жерін Ресей империясының отарлауы',T6='ХVІІІ ғ. аяғы – ХІХ ғ. ортасындағы қозғалыстар',T7='ХІХ ғасырдың екінші жартысындағы Қазақстан',T8='ХХ ғасыр басындағы Қазақстан',T9='Кеңес дәуіріндегі Қазақстан',T10='Тәуелсіз Қазақстан';
+add('M016',[
+[T1,'A','Андронов мәдениеті қай дәуірге жатады?','Тас дәуірі|Қола дәуірі|Темір дәуірі|Мезолит|Неолит',1],
+[T1,'B','Берел қорғандары қай өңірде орналасқан?','Шығыс Қазақстан|Жетісу|Маңғыстау|Қарағанды өңірі|Түркістан',0],
+[T1,'A','Сақ өнерінде кең тараған стиль қалай аталады?','Аң стилі|Барокко|Готика|Классицизм|Ренессанс',0],
+[T2,'A','Талас шайқасы қай жылы болды?','651 ж.|751 ж.|851 ж.|921 ж.|1001 ж.',1],
+[T2,'B','Орхон-Енисей жазбалары қай жазумен жазылған?','Көне түркі руникалық|Араб|Кирилл|Латын|Грек',0],
+[T2,'A','Қожа Ахмет Яссауи кесенесі қай қалада орналасқан?','Түркістан|Тараз|Отырар|Алматы|Атырау',0],
+[T3,'A','Жошы ұлысының (Алтын Орда) негізін қалаған кім?','Бату хан|Берке хан|Өзбек хан|Тоқтамыс|Мөңке',0],
+[T3,'B','Алтын Орданың астанасы қай қала болды?','Сарай-Бату|Сығанақ|Отырар|Түркістан|Тараз',0],
+[T3,'C','Ақ Орданың астанасы қай қала болды?','Сығанақ|Сарайшық|Тараз|Сарай-Бату|Самарқан',0],
+[T4,'B','Қасым хан қай жылдары билік етті?','1465–1480|1511–1523|1538–1580|1598–1628|1680–1718',1],
+[T4,'A','«Жеті жарғы» заңдар жинағы қай хан тұсында қабылданды?','Тәуке хан|Қасым хан|Абылай хан|Жәнібек хан|Есім хан',0],
+[T4,'A','«Ақтабан шұбырынды, Алқакөл сұлама» қай жылы болды?','1710 ж.|1723 ж.|1731 ж.|1740 ж.|1756 ж.',1],
+[T4,'C','Абылай қай жылы үш жүздің ханы болып сайланды?','1731 ж.|1740 ж.|1771 ж.|1781 ж.|1795 ж.',2],
+[T5,'B','«Сібір қазақтары туралы жарғы» қай жылы қабылданды?','1822 ж.|1824 ж.|1867 ж.|1868 ж.|1891 ж.',0],
+[T5,'C','Орынбор және Батыс Сібір генерал-губернаторлықтарын басқару жөніндегі Уақытша ереже қай жылы енгізілді?','1822 ж.|1824 ж.|1867 ж.|1868 ж.|1891 ж.',3],
+[T6,'B','Сырым Датұлы бастаған көтеріліс қай жылдары болды?','1783–1797|1822–1824|1836–1838|1837–1847|1916',0],
+[T6,'B','Исатай Тайманұлы мен Махамбет Өтемісұлы көтерілісі қай жылдары болды?','1783–1797|1822–1824|1836–1838|1837–1847|1916',2],
+[T7,'A','Абай Құнанбайұлы қай жылы дүниеге келген?','1845 ж.|1856 ж.|1861 ж.|1870 ж.|1883 ж.',0],
+[T8,'A','1916 жылғы көтерілістің басты себебі қандай болды?','Қара жұмысқа алу туралы жарлық|Салықтың азаюы|Тың игеру|Ұжымдастыру|Сайлау реформасы',0],
+[T8,'B','1916 жылғы Торғай көтерілісінің қолбасшысы кім?','Амангелді Иманов|Кенесары Қасымұлы|Исатай Тайманұлы|Сырым Датұлы|Әбілқайыр хан',0],
+[T8,'A','Алаш партиясының жетекшісі кім?','Әлихан Бөкейхан|Ахмет Байтұрсынұлы|Міржақып Дулатұлы|Мұстафа Шоқай|Жанша Досмұхамедұлы',0],
+[T9,'B','Қазақ АКСР атауы қай жылы қабылданды?','1920 ж.|1925 ж.|1936 ж.|1940 ж.|1991 ж.',1],
+[T9,'B','Қазақ КСР одақтас республика мәртебесін қай жылы алды?','1920 ж.|1925 ж.|1936 ж.|1940 ж.|1991 ж.',2],
+[T9,'A','Қазақстандағы ұлы ашаршылық қай жылдары болды?','1921–1922|1931–1933|1937–1938|1941–1945|1953–1954',1],
+[T9,'A','Тың және тыңайған жерлерді игеру қай жылы басталды?','1941 ж.|1946 ж.|1954 ж.|1964 ж.|1986 ж.',2],
+[T9,'A','Алматыдағы Желтоқсан көтерілісі қай жылы болды?','1979 ж.|1986 ж.|1989 ж.|1990 ж.|1991 ж.',1],
+[T9,'B','Семей ядролық полигоны қай жылы жабылды?','1949 ж.|1963 ж.|1986 ж.|1991 ж.|1995 ж.',3],
+[T10,'A','Ұлттық валюта теңге қай жылы енгізілді?','1991 ж.|1992 ж.|1993 ж.|1995 ж.|1999 ж.',2],
+[T10,'B','Астана Қазақстанның астанасы болып қай жылы жарияланды?','1991 ж.|1994 ж.|1997 ж.|2000 ж.|2010 ж.',2],
+[T10,'B','Қазақстан БҰҰ-ға қай жылы мүше болды?','1991 ж.|1992 ж.|1995 ж.|2000 ж.|2010 ж.',1],
+[T10,'C','Шанхай ынтымақтастық ұйымы қай жылы құрылды?','1996 ж.|2001 ж.|2005 ж.|2010 ж.|2015 ж.',1],
+[T10,'B','Еуразиялық экономикалық одақ қай жылы жұмыс істей бастады?','2010 ж.|2012 ж.|2014 ж.|2015 ж.|2018 ж.',3]
+]);
+add('M053',[
+['Сақ дәуірі','B','Шілікті қорымы қай өңірде орналасқан?','Шығыс Қазақстан|Жетісу|Маңғыстау|Арал маңы|Түркістан',0],
+['Сақ дәуірі','A','Кир патшаның жорығына қарсы тұрған массагет-сақ патшайымы кім?','Томирис|Зарина|Ұлпан|Ақжүніс|Айша бибі',0],
+['Тайпалық одақтар мен ежелгі мемлекеттер','C','Үйсін мемлекетінің астанасы қай қала болды?','Чигучэн|Тараз|Сығанақ|Түркістан|Отырар',0],
+['Көне түркі кезеңі','A','Күлтегін ескерткіші қай өңірден табылған?','Орхон өзені аңғары|Есік|Ертіс бойы|Іле алабы|Сырдария бойы',0],
+['Көне түркі кезеңі','B','Батыс Түркі қағанаты қай жылы құрылды?','552 ж.|603 ж.|630 ж.|659 ж.|744 ж.',1],
+['YII–IX ғасырлардағы мемлекеттер. Қарахан мемлекеті','B','Ислам дінін мемлекеттік дін еткен қарахандар билеушісі кім?','Сатұқ Боғра хан|Бумын қаған|Бату хан|Өзбек хан|Күшлік',0],
+['Қыпшақтар','B','Қыпшақтар Дешті Қыпшақтағы басты саяси күшке қай ғасырда айналды?','VII ғ.|IX ғ.|XI ғ.|XIV ғ.|XVI ғ.',2],
+['Қыпшақтар','A','Сығанақ қаласы қай өзен бойында орналасқан?','Сырдария|Ертіс|Жайық|Іле|Шу',0],
+['Араб-мұсылман факторы','B','Ислам Қазақстан аумағына қай ғасырдан бастап тарай бастады?','VII ғ.|VIII ғ.|Х ғ.|XIV ғ.|XVI ғ.',1],
+['Ұлы ғұламалар','A','«Құтадғу білік» дастанының авторы кім?','Жүсіп Баласағұн|Махмұд Қашқари|Әл-Фараби|Қожа Ахмет Яссауи|Ахмет Байтұрсынұлы',0],
+['Ұлы ғұламалар','A','«Диуани хикмет» жинағының авторы кім?','Қожа Ахмет Яссауи|Жүсіп Баласағұн|Әл-Фараби|Махмұд Қашқари|Ибн Сина',0],
+['Қидан мемлекеті','C','Қарақытай мемлекетінің негізін салушы кім?','Елюй Даши|Шыңғыс хан|Күшлік|Тоқтамыс|Мұхаммед хорезмшах',0],
+['Найман, Керей ұлыстары','B','Керей тайпасының әйгілі ханы кім болды?','Тоғрыл (Ван-хан)|Күшлік|Жамұқа|Үгедей|Бату',0],
+['Монғолдардың жаулап алуы','C','Монғол жаулап алуы кезінде Отырардың билеушісі кім болды?','Қайыр хан (Инальчық)|Тоқтамыс|Жәлел ад-дин|Күшлік|Едіге',0],
+['Монғолдардың жаулап алуы','B','Шыңғыс хан қай жылы қайтыс болды?','1206 ж.|1219 ж.|1227 ж.|1241 ж.|1260 ж.',2],
+['Қазақстан монғол ұлыстарында','C','Оңтүстік және Оңтүстік-Шығыс Қазақстан қай ұлыс құрамында болды?','Шағатай ұлысы|Жошы ұлысы|Үгедей ұлысы|Төле ұлысы|Хулагу ұлысы',0],
+['Алтын Орда','C','Тоқтамыс Қондырша өзені бойында Ақсақ Темірден қай жылы жеңілді?','1380 ж.|1391 ж.|1395 ж.|1405 ж.|1428 ж.',1],
+['ХІІІ–XV ғғ. рухани мәдениет','B','Қожа Ахмет Яссауи кесенесінің құрылысын кім бастатты?','Ақсақ Темір|Бату хан|Өзбек хан|Қасым хан|Абылай хан',0],
+['Ақ Орда','B','Ақ Орданың негізін қалаушы кім?','Орда Ежен|Бату|Берке|Өзбек|Тоқтамыс',0],
+['Ноғай Орда','B','Ноғай Ордасының негізін қалаушы кім?','Едіге би|Орда Ежен|Тоқтамыс|Керей|Қасым',0],
+['Ноғай Орда','C','Ноғай Ордасы қай өзендердің аралығында орналасты?','Еділ мен Жайық|Сырдария мен Әмудария|Ертіс пен Іле|Шу мен Талас|Тобыл мен Есіл',0],
+['Әбілхайыр хандығы','B','Әбілхайыр хан орталығын қай қалаға көшірді?','Сығанақ|Тараз|Бұхара|Самарқан|Сарай',0],
+['Әбілхайыр хандығы','C','Керей мен Жәнібек Әбілхайырдан бөлініп, қай хандықтың аумағына көшті?','Моғолстан|Хорезм|Сібір хандығы|Ноғай Ордасы|Қазан хандығы',0],
+['Қазақ хандығы жазба деректері','A','«Тарих-и Рашиди» кітабының авторы кім?','Мұхаммед Хайдар Дулати|Қадырғали Жалайыри|Әбілғазы|Жүсіп Баласағұн|Махмұд Қашқари',0],
+['Қазақ хандығы жазба деректері','C','Қадырғали Жалайыридің еңбегі қалай аталады?','Жылнамалар жинағы|Тарих-и Рашиди|Құтадғу білік|Диуани хикмет|Шежіре-и түрік',0],
+['Қазақ хандығы жазба деректері','C','«Шежіре-и түрік» (Түрік шежіресі) авторы кім?','Әбілғазы Баһадүр хан|Мұхаммед Хайдар Дулати|Қадырғали Жалайыри|Махмұд Қашқари|Жүсіп Баласағұн',0],
+['Қазақ хандығының құрылуы мен нығаюы','B','Қасым хан тұсында хандықтың орталығы қай қала болды?','Сығанақ|Түркістан|Сарайшық|Тараз|Алматы',0],
+['Қазақ хандығының күшеюі','A','Қазақ хандығы XVI ғ. бірінші ширегінде қай ханның тұсында күшейді?','Қасым хан|Керей хан|Жәнібек хан|Тәуке хан|Абылай хан',0],
+['Қазақ хандығының күшеюі','C','Хақназар хан қай жылдары билік етті?','1511–1523|1538–1580|1598–1628|1680–1718|1740–1781',1],
+['XVII–XVIII ғ. қазақ хандығы','A','«Жеті жарғы» заңдар жинағы қай хан тұсында қабылданды?','Тәуке хан|Қасым хан|Хақназар хан|Есім хан|Жәңгір хан',0],
+['Қазақ-жоңғар қатынастары','B','Аңырақай шайқасы қай жылы болды?','1710 ж.|1723 ж.|1729 ж.|1756 ж.|1771 ж.',2],
+['Қазақ-жоңғар қатынастары','C','Жәңгір хан жоңғарларды жеңген Орбұлақ шайқасы қай жылы болды?','1643 ж.|1710 ж.|1723 ж.|1729 ж.|1740 ж.',0]
+]);
+add('M053',[['Қазақ хандығының құрылуы мен нығаюы','B','Қасым ханның заңдар жинағы қалай аталады?','Қасқа жол|Жеті жарғы|Ескі жол|Түзік|Билер кеңесі',0]]);
+/* ============ ДВИЖОК ============ */
+const $=s=>document.querySelector(s),KEY='tarih-v1',L='ABCDE';
+let S=null,iv=null,conf=false;
+const qsOf=p=>[...BANK.en.map(q=>({...q,s:'en'})),...BANK[p].map(q=>({...q,s:p}))];
+function ld(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function sv(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function clr(){try{localStorage.removeItem(KEY)}catch(e){}}
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.92;speechSynthesis.speak(u)}catch(e){}}
+function hush(){try{speechSynthesis.cancel()}catch(e){}}
+const fmt=ms=>{ms=Math.max(0,ms);const s=Math.floor(ms/1000);return[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':')};
+
+function home(){
+  clearInterval(iv);const old=S&&!S.done;const sel=home.p||'';
+  $('#app').innerHTML=`<div class="card">
+  <h1>Пробное комплексное тестирование</h1>
+  <p class="mu">Английский язык (грамматика, чтение, аудирование) и профильный предмет по истории. Говорения нет. Вопросы закрытые: один верный ответ, 1 балл.</p>
+  <div class="pg">${Object.keys(PROG).map(p=>`<button class="pc ${sel==p?'on':''}" data-p="${p}"><b>${p.replace('M','М')}</b><span>${PROG[p].d}</span><span>${PROG[p].h}</span><span>Вопросов в банке: ${BANK.en.length+BANK[p].length}</span></button>`).join('')}</div>
+  <div class="hd" style="margin:0"><span class="mu">Время: ${TOTAL_MIN/60} ч. Ответы сохраняются автоматически.</span>
+  <span>${old?'<button class="sc" data-a="resume">Продолжить попытку</button> ':''}<button class="pr" data-a="start" ${sel?'':'disabled'}>Начать экзамен</button></span></div></div>`;
+}
+function exam(){
+  const Q=qsOf(S.p),q=Q[S.i],n=Q.length,got=Object.keys(S.a).length,subs=[...new Set(Q.map(x=>x.s))];
+  const grid=Q.map((x,k)=>S.only&&!S.f[k]?'':`<button class="nb${S.a[k]!=null?' an':''}${S.f[k]?' fl2':''}${k==S.i?' cu':''}" data-g="${k}" aria-label="Вопрос ${k+1}">${k+1}</button>`).join('');
+  $('#app').innerHTML=`<div class="hd"><div><b>${S.p.replace('M','М')} · вариант 1</b><div class="mu">Отвечено ${got} из ${n} · осталось ${n-got}</div></div>
+  <div style="display:flex;gap:8px;align-items:center"><button class="sc" data-a="exit">Сохранить и выйти</button><span class="tm" id="tm">${fmt(S.end-Date.now())}</span></div></div>
+  <div class="ex"><div class="card">
+    <div class="qm"><span>Вопрос ${S.i+1} / ${n} · ${SUB[q.s]} · ${q.tp} · ${q.lv}</span><button class="fl${S.f[S.i]?' on':''}" data-a="flag">${S.f[S.i]?'● Отмечен':'○ Отметить'}</button></div>
+    ${q.au?`<div class="au"><button class="sc" data-a="play">▶ Слушать текст</button><button class="sc" data-a="stop">■ Стоп</button></div><div class="mu" style="font-size:12px">Синтез речи браузера — звук нужно включить</div><details><summary>Показать расшифровку (подсказка)</summary><div class="psg">${q.au}</div></details>`:''}
+    ${q.p?`<div class="psg">${q.p}</div>`:''}
+    <div class="qt">${q.t}</div><div class="mu">Выберите один правильный ответ · 1 балл</div>
+    ${q.o.map((t,k)=>`<button class="op${S.a[S.i]===k?' sel':''}" data-k="${k}"><i></i><b>${L[k]}</b>${t}</button>`).join('')}
+    <div class="ft"><button class="sc" data-a="reset">Сбросить ответ</button><span><button class="sc" data-a="prev" ${S.i?'':'disabled'}>← Назад</button> <button class="pr" data-a="next" ${S.i<n-1?'':'disabled'}>Далее →</button></span></div>
+  </div>
+  <div class="card side"><span class="mu">Перейти к предмету</span>
+    <select id="sj">${subs.map(s=>`<option value="${s}" ${s==q.s?'selected':''}>${SUB[s]}</option>`).join('')}</select>
+    <label class="mu"><input type="checkbox" id="on" ${S.only?'checked':''}> Только отмеченные</label>
+    <div class="gr">${grid||'<span class="mu">Нет отмеченных</span>'}</div>
+    <div class="lgd">Зелёный — ответ сохранён · Точка — отмечен для проверки · Золотая рамка — текущий</div>
+    <button class="pr" style="width:100%" data-a="fin">${conf?`Точно завершить? Без ответа: ${n-got}`:'Завершить экзамен'}</button>
+  </div></div>`;
+}
+function result(){
+  clearInterval(iv);hush();const Q=qsOf(S.p),by={};let tot=0;
+  Q.forEach((q,k)=>{const b=by[q.s]=by[q.s]||{c:0,n:0};b.n++;if(S.a[k]===q.a){b.c++;tot++}});
+  $('#app').innerHTML=`<div class="card"><h1>Результат: ${tot} из ${Q.length}</h1><p class="mu">${S.p.replace('M','М')} · ${Math.round(tot/Q.length*100)}%</p>
+  ${Object.keys(by).map(s=>`<div>${SUB[s]}: <b>${by[s].c} / ${by[s].n}</b></div><div class="bar"><i style="width:${by[s].c/by[s].n*100}%"></i></div>`).join('')}
+  <button class="pr" data-a="home">На главную</button></div>
+  <h2 style="font-family:Georgia,serif">Разбор ответов</h2>${Q.map((q,k)=>{const ok=S.a[k]===q.a;return`<div class="rv${ok?' ok':''}"><b>${k+1}.</b> ${q.t}<br><span class="mu">Ваш ответ: ${S.a[k]==null?'—':L[S.a[k]]+') '+q.o[S.a[k]]} · Верный: ${L[q.a]}) ${q.o[q.a]}</span></div>`}).join('')}`;
+}
+function view(){S&&S.done?result():exam()}
+function run(){clearInterval(iv);iv=setInterval(()=>{const l=S.end-Date.now();if(l<=0){fin();return}const e=$('#tm');if(e)e.textContent=fmt(l)},1000)}
+function fin(){S.done=true;conf=false;sv();result()}
+function go(k){hush();S.i=k;conf=false;sv();exam()}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+  if(d.p){home.p=d.p;home();return}
+  if(d.k!==undefined){S.a[S.i]=+d.k;conf=false;sv();exam();return}
+  if(d.g!==undefined){go(+d.g);return}
+  switch(d.a){
+    case'start':S={p:home.p,a:{},f:{},i:0,end:Date.now()+TOTAL_MIN*6e4,done:false,only:false};sv();exam();run();break;
+    case'resume':exam();run();break;
+    case'next':go(S.i+1);break;case'prev':go(S.i-1);break;
+    case'reset':delete S.a[S.i];sv();exam();break;
+    case'flag':S.f[S.i]=!S.f[S.i];sv();exam();break;
+    case'play':say(qsOf(S.p)[S.i].au);break;case'stop':hush();break;
+    case'exit':hush();clearInterval(iv);sv();home();break;
+    case'fin':if(conf)fin();else{conf=true;exam()}break;
+    case'home':clr();S=null;home.p='';home();break;
+  }
+});
+document.addEventListener('change',e=>{
+  if(e.target.id=='sj')go(qsOf(S.p).findIndex(q=>q.s==e.target.value));
+  if(e.target.id=='on'){S.only=e.target.checked;exam()}
+});
+$('#th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme=='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);r.dataset.theme=d?'light':'dark'};
+S=ld();if(S&&S.done)S=null;
+if(S&&Date.now()>S.end){S.done=true;sv();result()}else home();
+</script>
+</body>
+</html>
